@@ -7,6 +7,7 @@ from datetime import datetime, timedelta
 
 # App initialization
 app = dash.Dash(__name__)
+server=app.server
 
 # App layout
 app.layout = html.Div(
@@ -114,4 +115,4 @@ def update_graph(stock_ticker, time_frame, selected_volatility):
 
 # Run the app
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server()
