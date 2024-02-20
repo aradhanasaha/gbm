@@ -88,16 +88,13 @@ def update_graph(stock_ticker, time_frame, selected_volatility):
     # Calculate daily returns
     daily_returns = stock_data['Adj Close'].pct_change().dropna()
     
-    # Calculate GBM parameters
-    mu = daily_returns.mean() * 252
-    sigma = daily_returns.std() * np.sqrt(252)
     
     # Generate GBM simulation
     t = np.arange(1, len(daily_returns) + 1)
     simulated_prices = [stock_data['Adj Close'].iloc[0]]
     
     for _ in range(1, len(t)):
-        drift = mu * (1 / 252)
+        drift = daily_returns.mean()
         diffusion = selected_volatility * np.sqrt(1 / 252) * np.random.normal(0, 1)
         price = simulated_prices[-1] * np.exp(drift + diffusion)
         simulated_prices.append(price)
