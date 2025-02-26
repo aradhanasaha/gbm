@@ -29,5 +29,5 @@ This is a **Dash-powered web application** that simulates **stock price movement
 ## Run the Project Locally  
 1. **Clone this repository:**  
    ```bash
-   git clone https://github.com/your-username/stock-gbm-simulation.git
-   cd stock-gbm-simulation
+   git clone https://github.com/aradhanasaha/gbm.git
+   cd gbm
